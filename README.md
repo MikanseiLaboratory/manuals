@@ -5,6 +5,7 @@
 ## マニュアル一覧
 
 - [Iryx（vMixコントローラー）](./iryx/)
+- [ATEM Controller](./atem_controller/)
 
 ## 著作権（Copyright）
 
