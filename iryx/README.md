@@ -1,6 +1,6 @@
 # Iryx manuals
 
-`Iryx`（vMixコントローラー）に関するマニュアルです。
+`Iryx`（vMix / ATEMコントローラー）に関するマニュアルです。
 
 ## マニュアル
 
