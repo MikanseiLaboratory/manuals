@@ -4,7 +4,7 @@
 
 ## マニュアル一覧
 
-- [Iryx（vMixコントローラー）](./iryx/)
+- [Iryx（vMix / ATEMコントローラー）](./iryx/)
 
 ## 著作権（Copyright）
 
