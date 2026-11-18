@@ -13,7 +13,7 @@
   - [4.3 メニュー内のボタン対応（共通）](#section-4-3)
   - [4.4 メニュー階層](#section-4-4)
     - [4.4.1 メインメニュー](#section-4-4-1)
-    - [4.4.2 LAN 配下（LAN搭載モデル）](#section-4-4-2)
+    - [4.4.2 LAN 配下（vMix モード・LAN搭載モデル）](#section-4-4-2)
     - [4.4.3 USB 配下](#section-4-4-3)
     - [4.4.4 Link Mode（LAN搭載モデル）](#section-4-4-4)
     - [4.4.5 Transition Settings](#section-4-4-5)
@@ -146,8 +146,8 @@ PCと本機を、データ転送対応のUSBケーブルで接続してくださ
 
 本機にUSBで給電し、LANケーブルを接続してください。DHCP対応環境の場合、自動的にIPが設定されます。  
 設定画面からvMixのIPを設定し、接続してください。  
-DHCPに対応していない環境の場合、IPを手動設定する必要があります。  
-詳しくは[4.4.2 LAN 配下（LAN搭載モデル）](#section-4-4-2) をご確認ください。
+DHCP サーバが無い環境では、約 30 秒待ったあと自動的に `192.168.1.100/24`（ゲートウェイ `192.168.1.1`）にフォールバックします。起動自体は待たされません。vMix 用 PC と同じサブネットで使いたい場合は、`Settings → LAN → 3: Static IP` で固定 IP を設定してください。  
+詳しくは[4.4.2 LAN 配下（vMix モード・LAN搭載モデル）](#section-4-4-2) をご確認ください。
 
 <a id="section-4-1-3"></a>
 
@@ -162,7 +162,8 @@ ATEM モードは有線LAN専用です。USB は給電専用で、PC にはネ�
 4. 接続できると、メイン画面の `Status` が `ready` になります。
 
 ATEM IP の初期値は `192.168.1.10` です。ATEM の制御ポートは UDP 9910 を使用します。  
-vMix モードから切り替えた場合、vMix モードで設定していた接続先 IP がそのまま ATEM IP として使われます。ATEM に接続する前に、必ず LAN メニューで ATEM IP を確認してください。
+vMix モードから切り替えた場合、vMix モードで設定していた接続先 IP がそのまま ATEM IP として使われます。ATEM に接続する前に、必ず LAN メニューで ATEM IP を確認してください。  
+DHCP サーバが無い環境では、約 30 秒後に本機の IP が `192.168.1.100/24` に自動で設定されます。ATEM の初期値 `192.168.1.10` と同じサブネットなので、そのまま接続できます。別のサブネットで運用する場合は `Settings → LAN → 3: Static IP` で固定 IP を設定してください。
 
 <a id="section-4-2"></a>
 
@@ -251,13 +252,15 @@ Menuボタンでメインメニューが開きます。
 
 <a id="section-4-4-2"></a>
 
-#### 4.4.2 LAN 配下（LAN搭載モデル）
+#### 4.4.2 LAN 配下（vMix モード・LAN搭載モデル）
 
-LAN メニュー
+vMix モードの LAN メニュー
 
 - 1: vMix IP → LAN 経由の vMix IP 編集（接続がLANのときはオクテット編集と Auto で保存・再接続）
 - 2: IP: DHCP または Static → LAN IP モードの切替と適用
 - 3: Static IP → 固定IPの編集と Auto で適用
+
+ATEM モードでは 1 行目が `1: ATEM IP` に変わります（[4.4.7](#section-4-4-7) 参照）。
 
 <a id="section-4-4-3"></a>
 
@@ -328,7 +331,7 @@ Settings
 - [2] Target ME → 操作対象の M/E を選択。Custom 3/4 で変更し、Auto で保存します。ATEM から M/E 数が取得できている場合は、その範囲内でのみ選択できます。
 - [3] Restart → 再起動の確認
 
-ATEM モードには USB メニュー、vMix IP、Link Mode、Transition Settings はありません。LAN IP の適用とモード切替では本体が再起動します。
+ATEM モードには USB メニュー、vMix IP、Link Mode、Transition Settings はありません。LAN IP（`2: IP` / `3: Static IP`）の適用とモード切替では本体が再起動します。**ATEM IP の変更では再起動しません**（ATEM との UDP セッションを張り直します）。
 
 <a id="section-4-5"></a>
 

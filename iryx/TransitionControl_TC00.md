@@ -1,3 +1,5 @@
+> **このマニュアルは旧名称のものです。** TC-00 は SW-01 に改称されました。最新の内容は [Iryx Transition Control SW-01 取扱説明書](./TransitionControl_SW01.md) を参照してください。
+
 # vMixコントローラー Iryx Transition Control TC-00 取扱説明書
 
 ## 目次
